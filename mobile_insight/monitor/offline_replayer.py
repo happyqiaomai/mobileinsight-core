@@ -160,13 +160,13 @@ class OfflineReplayer(Monitor):
         try:
 
             self.broadcast_info('STARTED', {})
-            self.log_info('STARTED: ' + str(time.time()))
+            self.log_info('Started: ' + str(time.time()))
             log_list = []
             if os.path.isfile(self._input_path):
                 log_list = [self._input_path]
             elif os.path.isdir(self._input_path):
                 for file in os.listdir(self._input_path):
-                    if file.endswith(".mi2log") or file.endswith(".qmdl"):
+                    if file.endswith(".mi2log") or file.endswith(".qmdl") or file.endswith(".mi3log"):
                         # log_list.append(self._input_path+"/"+file)
                         log_list.append(os.path.join(self._input_path, file))
             else:
